@@ -1,0 +1,115 @@
+<html>
+   <head>
+      <title>Heart Disease Detection</title>
+
+      
+
+      <style>
+         body{
+            background: url("{{ url_for('static', filename='image.png') }}");
+            background-color: gray;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            
+            
+            
+         }
+         div {
+            margin-top: 170px;
+         }
+         p{
+            color: gray;
+            display: inline;
+         }
+         h3{
+            color:white;
+            background-color: black;
+         }
+      </style>
+   
+      </head>
+   
+   <body>
+      
+      <div style="text-align: center;">
+      
+      <h1><b><i><p>Heart Disease Prediction</p></i></b></h1>
+      <form action="{{ url_for('predict')}}"method="post">
+         <input type="number" name="age" placeholder="AGE" required="required"/> 
+         
+         <label for="sex"><p>SEX</p></label>
+            <select name="sex" id="sex">
+            <option value=0>Female</option>
+            <option value=1>Male</option>
+            </select><br><br>
+         
+         <label for="cp"><p>Area of Chest Pain</p></label>
+            <select name="cp" id="cp">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=0>0</option>
+            </select> <br><br>
+         
+         <input type="number" name="trestbps" placeholder="TrestBps" required="required"/>
+
+         <input type="number" name="chol" placeholder="CHOL" required="required"/><br><br>
+        
+         <label for="fbs"><p>Choose FBS</p></label>
+            <select name="fbs" id="fbs">
+            <option value=0>0</option>
+            <option value=1>1</option>
+            </select>
+
+         <label for="restecg"><p>Choose restecg</p></label>
+            <select name="restecg" id="restecg">
+            <option value=0>0</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            </select><br><br>
+
+         <input type="number" name="thalach" placeholder="Thalach" required="required"/><br><br>
+         
+         <label for="exang"><p>Choose exang</p></label>
+            <select name="exang" id="exang">
+            <option value=0>0</option>
+            <option value=1>1</option>
+            </select><br><br>
+
+         <input type="number" name="oldpeak" placeholder="oldpeak" required="required"/><br><br>
+
+         <label for="slope"><p>Slope</p></label>
+            <select name="slope" id="slope">
+            <option value=0>0</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            </select>
+         
+         <label for="ca"><p>CA</p></label>
+            <select name="ca" id="ca">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=0>0</option>
+            </select>
+         
+         <label for="thal"><p>Thal</p></label>
+            <select name="thal" id="thal">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=0>0</option>
+            </select><br><br>
+         
+         <button type="submit" >Predict</button>
+         
+      </form>
+      
+      
+
+      <h3><b>{{ prediction }}</b></h3>
+   </div>
+   </body>
+</html>
